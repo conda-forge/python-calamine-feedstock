@@ -10,21 +10,23 @@ source:
   sha256: c1ad3f80aaf1e0b54da1b85790f19c8a146cad75c07c95baf76d4fb56a0ec632
 
 build:
-  skip: true  # [py<37]
   script:
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - maturin >=1,<2                         # [build_platform != target_platform]
     - {{ compiler("c") }}
     - {{ compiler("rust") }}
     - cargo-bundle-licenses
   host:
     - python
     - pip
-    - maturin >=1.0,<1.1
+    - maturin >=1,<2
   run:
     - python
 
