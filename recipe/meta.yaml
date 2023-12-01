@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: c1ad3f80aaf1e0b54da1b85790f19c8a146cad75c07c95baf76d4fb56a0ec632
+  sha256: 57199dc84522001bdefd0e87e6c50c5a88bf3425dbc3d8fb52c0dec77c218ba2
 
 build:
   script:
@@ -15,7 +15,7 @@ build:
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-  number: 5
+  number: 0
 
 requirements:
   build:
@@ -45,7 +45,7 @@ about:
   dev_url: https://github.com/dimastbk/python-calamine
   summary: Python binding for Rust's library for reading excel and odf file - calamine.
   license: MIT
-  license_file: 
+  license_file:
     - LICENSE
     - THIRDPARTY.yml
 
