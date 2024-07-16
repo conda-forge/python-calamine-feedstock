@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: 3cc81fefbd697050bed7d9968be3562ab41390bf8fd0a79e97eed6056be3d332
+  sha256: c7f327c4778d4478e76003d9f75c9e0bf3c697f3e64c4382b393ea319aa649cd
 
 build:
   script:
@@ -23,6 +23,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1,<2                         # [build_platform != target_platform]
     - {{ compiler("c") }}
+    - {{ stdlib("c") }}
     - {{ compiler("rust") }}
     - cargo-bundle-licenses
   host:
