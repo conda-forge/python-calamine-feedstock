@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
   sha256: b6527a3215950e1ad714f63cc201ef4455dc0ea99b7504c0af0fde68779efcf2
 
 build:
@@ -15,7 +15,7 @@ build:
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -32,6 +32,7 @@ requirements:
     - maturin >=1,<2
   run:
     - python
+    - packaging >=24.1
 
 test:
   imports:
