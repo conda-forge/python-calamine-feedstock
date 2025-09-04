@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: 94afcbae3fec36d2d7475095a59d4dc6fae45829968c743cb799ebae269d7bbf
+  sha256: dba61e3dbaddca5f9292fe613360735d532c4119c6023540339ea3cde4233e90
 
 build:
   script:
@@ -15,7 +15,7 @@ build:
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-  number: 1
+  number: 0
 
 requirements:
   build:
