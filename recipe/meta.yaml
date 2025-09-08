@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: 67dd1ac95e10c7737c1b2e43d6b6a9c1e3bbf615ee5e866ca927d94e04e5e4c0
+  sha256: b4529c955fa64444184630d5bc8c82c472d1cf6bfe631f0a7bfc5e4802d4e996
 
 build:
   script:
