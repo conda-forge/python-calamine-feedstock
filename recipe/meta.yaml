@@ -32,7 +32,6 @@ requirements:
     - maturin >=1,<2
   run:
     - python
-    - packaging >=24.1
 
 test:
   imports:
