@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: 3182d653cc9bdcc37938a55edabd0ed8180361b1392815de5e1e198aac156f28
+  sha256: b2000c085722afd01d973af3d58325d26cfd798b3665bb0924e3a658351ebfad
 
 build:
   skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
