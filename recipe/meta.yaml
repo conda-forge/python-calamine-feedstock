@@ -1,5 +1,5 @@
 {% set name = "python-calamine" %}
-{% set version = "0.6.1" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_calamine-{{ version }}.tar.gz
-  sha256: 5974989919aa0bb55a136c1822d6f8b967d13c0fd0f245e3293abb4e63ab0f4b
+  sha256: 3182d653cc9bdcc37938a55edabd0ed8180361b1392815de5e1e198aac156f28
 
 build:
+  skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
