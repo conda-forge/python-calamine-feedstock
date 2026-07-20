@@ -10,6 +10,7 @@ source:
   sha256: 3182d653cc9bdcc37938a55edabd0ed8180361b1392815de5e1e198aac156f28
 
 build:
+  skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
