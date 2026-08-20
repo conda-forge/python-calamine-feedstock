@@ -1,25 +1,20 @@
 schema_version: 1
 
 context:
-  name: python-calamine
   version: "0.8.0"
 
 package:
-  name: ${{ name|lower }}
+  name: python-calamine
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/python_calamine-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/python-calamine/python_calamine-${{ version }}.tar.gz
   sha256: 3182d653cc9bdcc37938a55edabd0ed8180361b1392815de5e1e198aac156f28
 
 build:
   number: 0
-  skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
   script:
-    # PyPy has weird sysconfigdata name
-    - if: build_platform != target_platform and target_platform == "linux-ppc64le"
-      then: rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py
-    - ${{ PYTHON }} -m pip install . -vv
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
 requirements:
