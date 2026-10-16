@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.8.3"
+  version: "0.9.0"
 
 package:
   name: python-calamine
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/python-calamine/python_calamine-${{ version }}.tar.gz
-  sha256: 93dba488baad15bb2daed4bf45007ec550a3905aa4d39f764d1573290b72961c
+  sha256: cdae9f10335361eaee7d87d9d94593ff25c076561f95105cc880c57477d8f4af
 
 build:
   number: 0
